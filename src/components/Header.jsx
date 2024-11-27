@@ -2,13 +2,18 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import { Link } from 'react-router-dom'
-
+//logo
+import logo from "../assets/logowine.png"
 
 export function Header(props){
     return(
         <Navbar>
             <Container>
-                <Navbar.Brand>{props.text}</Navbar.Brand>
+                <Navbar.Brand>
+                    <img src={logo} style={{maxWidth: '60px'}}/>
+                    {props.text}
+                    
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="main-nav"/>
                 <Navbar.Collapse id="main-nav">
                     <Nav>

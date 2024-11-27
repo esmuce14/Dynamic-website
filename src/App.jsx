@@ -9,9 +9,19 @@ import { Home } from './Pages/Home'
 import { About } from './Pages/About';
 import { Signup } from './Pages/Signup';
 import { Routes,Route } from 'react-router-dom';
+import { Client, Databases } from 'appwrite';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const client = new Client();
+  client.setProject('6746c31a001528173514');
+  client.setEndpoint("https://cloud.appwrite.io/v1")
+  //const [count, setCount] = useState(0)
+
+  const database= new Databases(client)
+
+
+
 
   return (
    <>
