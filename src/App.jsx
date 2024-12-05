@@ -9,7 +9,8 @@ import { Home } from './Pages/Home'
 import { About } from './Pages/About';
 import { Signup } from './Pages/Signup';
 import { Routes,Route } from 'react-router-dom';
-import { Client, Databases } from 'appwrite';
+import { Client, Account, Databases, Storage } from 'appwrite';
+
 
 function App() {
 
@@ -19,15 +20,14 @@ function App() {
   //const [count, setCount] = useState(0)
 
   const database= new Databases(client)
-
-
-
+  const account= new Account(client)
+  const storage= new Storage(client)
 
   return (
    <>
     <Header text="wine"/>
     <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Home db={database} str={storage}/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/register' element={<Signup/>}/>
     </Routes>
